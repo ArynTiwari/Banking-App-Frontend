@@ -1,9 +1,19 @@
-import React from 'react'
-
+import React from "react";
+import { stats } from "../constants";
+import styles from "../style";
 function Stats() {
   return (
-    <div>Stats</div>
-  )
+    <section className={`${styles.flexCenter} flex-row sm:mb-20 mb-6`}>
+      {stats.map((stat) => ( 
+        <div key={stat.id} className={`flex-1 flex flex-row justify-start items-center m-3`}>
+          <h4 className="fonts-popins fonts-semibold xs:text-[40px] text-[30px] xs:leading-[53px] leading-[43px] text-white">
+            {stat.value}
+          </h4>
+          <p className="fonts-popins fonts-semibold xs:text-[20px] text-[15px] xs:leading-[26px] leading-[21px] text-gradient uppercase ml-3">{stat.title}</p>
+        </div>
+      ))}
+    </section>
+  );
 }
 
-export default Stats
+export default Stats;
